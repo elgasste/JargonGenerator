@@ -132,7 +132,7 @@ public final class JargonLoader {
             "You should try using the {adjective} {abbreviation} {noun}, it will {verb} your {adjective} {noun} like you wouldn't believe.",
             "I like to {verb} my {adjective} {adjective} {noun} through my {abbreviation} {noun}, it's easier to {verb} that way.",
             "I've never liked their {adjective} {noun}s, my {adjective} {abbreviation} {noun} can {verb} so much better.",
-            "{ingverb} your {adjective} {noun} will really bring out the {adjective} {adjective} {noun} when you {verb}.",
+            "{ingverb} your {adjective} {noun} will really bring out the {adjective} {adjective} {noun} when you {verb} the {noun}.",
             "If you want to {verb}, try using the {abbreviation} {adjective} {noun}, it's my little trick.",
             "{ingverb} has never been the same since I lost my {adjective} {adjective} {noun}, now I have to use my {noun} for {ingverb}."
         };
