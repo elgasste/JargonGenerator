@@ -21,19 +21,17 @@ public class JargonGenerator {
     }
 
     private ArrayList<ArrayList<String>> _wordPool;
-    private ArrayList<ArrayList<String>> _cachePool;
+    private ArrayList<String> _wordCache;
     private ArrayList<String> _constructs;
 
     public JargonGenerator() {
         _wordPool = new ArrayList<ArrayList<String>>();
-        _cachePool = new ArrayList<ArrayList<String>>();
+        _wordCache = new ArrayList<String>();
+        _constructs = new ArrayList<String>();
 
         for (int i = 0; i < WordType.values().length; i++) {
             _wordPool.add(new ArrayList<String>());
-            _cachePool.add(new ArrayList<String>());
         }
-
-        _constructs = new ArrayList<String>();
     }
 
     public void AddWord(String word, WordType wordType) {
@@ -51,18 +49,12 @@ public class JargonGenerator {
         }
 
         // always clear the cache first
-        clearCache();
+        _wordCache.clear();
 
         // pull out a random construct and build a sentence
         Random randomGenerator = new Random();
         int randomIndex = randomGenerator.nextInt(_constructs.size());
         return buildSentence(randomIndex);
-    }
-
-    private void clearCache() {
-        for (int i = 0; i < WordType.values().length; i++) {
-            _cachePool.get(i).clear();
-        }
     }
 
     private String buildSentence(int constructIndex) {
@@ -75,7 +67,13 @@ public class JargonGenerator {
         for(int i = 0; i < words.length; i++) {
             if (i > 0)
                 sentence += " ";
-            sentence += buildWord(words[i]);
+            String word = buildWord(words[i]);
+
+            // make sure the first word is capitalized
+            if (i == 0)
+                word = word.substring(0, 1).toUpperCase() + word.substring(1);
+
+            sentence += word;
         }
 
         return sentence;
@@ -118,7 +116,7 @@ public class JargonGenerator {
         String word = wordList.get(randomIndex);
 
         // if we've already used this word, find a different one
-        while(_cachePool.get(type.value).contains(word)) {
+        while(_wordCache.contains(word)) {
             randomIndex++;
             if (randomIndex >= wordList.size())
                 randomIndex = 0;
@@ -126,7 +124,7 @@ public class JargonGenerator {
         }
 
         // add this word to the cache so we don't use it again
-        _cachePool.get(type.value).add(word);
+        _wordCache.add(word);
 
         return word;
     }
