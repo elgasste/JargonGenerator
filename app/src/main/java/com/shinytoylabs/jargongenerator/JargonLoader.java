@@ -105,7 +105,11 @@ public final class JargonLoader {
         };
 
         String constructs [] = {
-            ""
+            "This board has {adjective} {abbreviation} {noun}, the {adjective} {noun} sounds amazing.",
+            "If you turn on {abbreviation} {noun}, you can really {verb} the {abbreviation} {noun}.",
+            "Some people only hear {adjective} {noun}, but {ingverb} some {abbreviation} {adjective} {noun} as well.",
+            "They say {adjective} {abbreviation} is the wave of the future, but I'd rather {verb} some good old {adjective} {noun}.",
+            "Ever since {ingverb} {noun} in my board, I can totally {verb} more {adjective} {noun} in my mixes."
         };
 
         sendDataToGenerator(generator, wordPool, constructs);
