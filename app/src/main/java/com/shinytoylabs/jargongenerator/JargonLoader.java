@@ -88,28 +88,48 @@ public final class JargonLoader {
     private static void loadAudioJargon(JargonGenerator generator) {
         String wordPool [][] = {
             {
-                ""
+                "THX", "FLAC", "MP3", "AAC", "48K", "WAV", "DSP", "DAW", "AIFF", "CPS", "AGC",
+                "VST", "SPDIF", "M4A", "AC97", "ASIO", "AV", "HDA", "DAI", "APAC", "THD", "VAIO",
+                "WMA", "ACPA", "AWAC", "VST3", "CD-ROM", "CD-DA", "AC-3", "RMS", "CBR", "FOH"
             },
             {
-                ""
+                "harmonic", "digital", "analog", "transient", "low-pass", "high-pass", "automated",
+                "virtual", "stereo", "mono", "surround", "multi-track", "dynamic", "multi-band",
+                "Baxandall", "resonant", "vintage", "peak", "aliased", "auxiliary", "balanced",
+                "cardioid", "condenser", "graphic", "master", "unbalanced", "ambient", "phantom"
             },
             {
-                ""
+                "gain", "threshold", "plugin", "waveform", "frequency", "amplifier", "filter",
+                "soundboard", "mixer", "signal", "exciter", "distortion", "bitrate", "limiter",
+                "driver", "channel", "ratio", "sidechain", "latency", "fader", "feedback", "delay",
+                "converter", "processor", "ground loop", "impedance", "headroom", "preamp",
+                "noise floor", "reverb", "sample", "tone", "transducer"
             },
             {
-                ""
+                "boost", "dither", "clip", "mix", "adjust", "cut", "broadcast", "encode",
+                "compress", "mix down", "mute", "amplify", "phase-shift", "autotune", "attenuate",
+                "EQ", "level", "normalize", "quantize", "shelve", "sweep", "cross-fade", "dial in"
             },
             {
-                ""
+                "boosting", "dithering", "clipping", "mixing", "broadcasting", "encoding",
+                "compressing", "mixing down", "muting", "amplifying", "phase-shifting", "autotuning",
+                "attenuating", "EQing", "leveling", "normalizing", "quantizing", "shelving", "sweeping",
+                "cross-fading", "dialing in"
             }
         };
 
         String constructs [] = {
-            "This board has {adjective} {abbreviation} {noun}, the {adjective} {noun} sounds amazing.",
-            "If you turn on {abbreviation} {noun}, you can really {verb} the {abbreviation} {noun}.",
-            "Some people only hear {adjective} {noun}, but {ingverb} some {abbreviation} {adjective} {noun} as well.",
-            "They say {adjective} {abbreviation} is the wave of the future, but I'd rather {verb} some good old {adjective} {noun}.",
-            "Ever since {ingverb} {noun} in my board, I can totally {verb} more {adjective} {noun} in my mixes."
+            "This {noun} has its own {adjective} {abbreviation} {noun}, the {adjective} {noun} sounds amazing.",
+            "If you {verb} the {abbreviation} {noun}, it's easier to {verb} the {abbreviation} {noun}.",
+            "Some people only hear the {adjective} {noun}, but I'm picking up the {abbreviation} {adjective} {noun} as well.",
+            "They say {adjective} {abbreviation} is the next big thing, but I'm sticking with my {abbreviation} {adjective} {noun}.",
+            "Ever since {ingverb} the {noun} on my {noun}, I can totally {verb} more {adjective} {noun}s in my {noun}.",
+            "You should try using the {adjective} {abbreviation} {noun}, it will {verb} your {adjective} {noun} like you wouldn't believe.",
+            "I like to {verb} my {adjective} {adjective} {noun} through my {abbreviation} {noun}, it sounds more {adjective} that way.",
+            "I've never liked their {adjective} {noun}s, my {adjective} {abbreviation} {noun} can {verb} so much better.",
+            "{ingverb} your {adjective} {noun} will really bring out the {adjective} {adjective} {noun} when you {verb}.",
+            "If you want to {verb}, try using the {abbreviation} {adjective} {noun}, it's my little trick.",
+            "{ingverb} has never been the same since I lost my {adjective} {adjective} {noun}, now I have to use my {noun} for {ingverb}."
         };
 
         sendDataToGenerator(generator, wordPool, constructs);
