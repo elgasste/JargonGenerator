@@ -25,6 +25,10 @@ public class JargonGenerator {
     private ArrayList<String> _constructs;
 
     public JargonGenerator() {
+        Reset();
+    }
+
+    public void Reset() {
         _wordPool = new ArrayList<ArrayList<String>>();
         _wordCache = new ArrayList<String>();
         _constructs = new ArrayList<String>();

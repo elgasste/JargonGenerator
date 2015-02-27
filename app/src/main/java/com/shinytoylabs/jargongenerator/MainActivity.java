@@ -19,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         _jargonGenerator = new JargonGenerator();
-        JargonLoader.LoadJargon(_jargonGenerator);
+        JargonLoader.LoadJargon(_jargonGenerator, JargonLoader.JargonType.AUDIO);
 
         // plug in the generate button
         final Button button = (Button)findViewById(R.id.buttonGenerate);
