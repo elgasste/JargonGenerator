@@ -9,14 +9,16 @@ public final class JargonLoader {
         TECH, AUDIO
     }
 
-    public static void LoadJargon(JargonGenerator generator, JargonType type) {
+    public static void LoadJargon(JargonGenerator generator, String type) {
         generator.Reset();
 
         switch(type) {
-            case TECH:
+            case "Technical":
                 loadTechJargon(generator);
-            case AUDIO:
+            case "Audio":
                 loadAudioJargon(generator);
+            default:
+                loadTechJargon(generator);
         }
     }
 
