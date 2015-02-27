@@ -15,10 +15,13 @@ public final class JargonLoader {
         switch(type) {
             case "Technical":
                 loadTechJargon(generator);
+                break;
             case "Audio":
                 loadAudioJargon(generator);
+                break;
             default:
                 loadTechJargon(generator);
+                break;
         }
     }
 
