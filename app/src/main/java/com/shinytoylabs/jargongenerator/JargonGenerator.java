@@ -74,7 +74,7 @@ public class JargonGenerator {
             String word = buildWord(words[i]);
 
             // make sure the first word is capitalized
-            if (i == 0)
+            if (i == 0 && word.length() > 0)
                 word = word.substring(0, 1).toUpperCase() + word.substring(1);
 
             sentence += word;
