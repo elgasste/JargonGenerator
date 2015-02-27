@@ -120,15 +120,25 @@ public class JargonGenerator {
         String word = wordList.get(randomIndex);
 
         // if we've already used this word, find a different one
+        int iterations = 0;
+        boolean reused = false;
         while(_wordCache.contains(word)) {
             randomIndex++;
             if (randomIndex >= wordList.size())
                 randomIndex = 0;
             word = wordList.get(randomIndex);
+
+            // if we've used up every word, just re-use the first one
+            iterations++;
+            if (iterations > wordList.size()) {
+                reused = true;
+                break;
+            }
         }
 
-        // add this word to the cache so we don't use it again
-        _wordCache.add(word);
+        // if it's not a re-used word, add it to the cache so we don't use it again
+        if (!reused)
+            _wordCache.add(word);
 
         return word;
     }
