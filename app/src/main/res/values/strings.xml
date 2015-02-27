@@ -4,4 +4,8 @@
     <string name="header_message">Press the button for jargon!</string>
     <string name="action_settings">Settings</string>
     <string name="button_generate">Generate</string>
+    <string-array name="jargon_types">
+        <item>Technical</item>
+        <item>Audio</item>
+    </string-array>
 </resources>
