@@ -130,7 +130,7 @@ public final class JargonLoader {
             "They say {adjective} {abbreviation} is the next big thing, but I'm sticking with my {abbreviation} {adjective} {noun}.",
             "Ever since {ingverb} the {noun} on my {noun}, I can totally {verb} more {adjective} {noun}s in my {noun}.",
             "You should try using the {adjective} {abbreviation} {noun}, it will {verb} your {adjective} {noun} like you wouldn't believe.",
-            "I like to {verb} my {adjective} {adjective} {noun} through my {abbreviation} {noun}, it sounds more {adjective} that way.",
+            "I like to {verb} my {adjective} {adjective} {noun} through my {abbreviation} {noun}, it's easier to {verb} that way.",
             "I've never liked their {adjective} {noun}s, my {adjective} {abbreviation} {noun} can {verb} so much better.",
             "{ingverb} your {adjective} {noun} will really bring out the {adjective} {adjective} {noun} when you {verb}.",
             "If you want to {verb}, try using the {abbreviation} {adjective} {noun}, it's my little trick.",
