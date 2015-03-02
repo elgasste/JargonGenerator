@@ -5,6 +5,7 @@
     <string name="header_message_right">jargon!</string>
     <string name="action_settings">Settings</string>
     <string name="button_generate">Generate</string>
+    <string name="button_copy_jargon">Copy this</string>
     <string-array name="jargon_types">
         <item>Technical</item>
         <item>Audio</item>
