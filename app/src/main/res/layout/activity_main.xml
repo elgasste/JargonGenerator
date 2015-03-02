@@ -59,6 +59,16 @@
         android:layout_height="wrap_content"
         android:text="@string/button_copy_jargon"
         android:id="@+id/buttonCopyJargon"
+        android:layout_marginBottom="30dp"
+        android:layout_above="@+id/textViewCopied"
+        android:layout_alignRight="@+id/buttonGenerate"
+        android:layout_alignEnd="@+id/buttonGenerate" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/footer_message_copied"
+        android:id="@+id/textViewCopied"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
