@@ -87,7 +87,7 @@ public final class JargonLoader {
             "I'll {verb} the {adjective} {abbreviation} {noun}, that should {verb} the {abbreviation} {noun}!",
             "My {abbreviation} {noun} is down, our only choice is to {verb} and {verb} the {adjective} {noun}!",
             "They're inside the {noun}, use the {adjective} {abbreviation} {noun} to {verb} their {noun}!",
-            "Send a {adjective} {noun} into the {noun}, it will {verb} the {noun} by {ingverb} its {abbreviation} {noun}!"
+            "Send the {adjective} {noun} into the {noun}, it will {verb} the {noun} by {ingverb} its {abbreviation} {noun}!"
         };
 
         sendDataToGenerator(generator, wordPool, constructs);
@@ -150,13 +150,13 @@ public final class JargonLoader {
                         "roommate", "friend", "colleague", "imaginary friend", "personal space cowboy",
                         "pet alien", "grandma", "grandpa", "ex-professor's former psychiatrist",
                         "personal trainer", "neighbor", "maid", "intern", "mentor", "secretary",
-                        "pool boy", "CIA contact", "P.I.", "pet tiger", "son's girlfriend"
+                        "pool boy", "CIA contact", "pet tiger", "son's girlfriend", "butler"
                 },
                 { // adjectives (actually adverbs)
                         "accidentally", "purposely", "secretly", "deliberately", "angrily", "spontaneously",
                         "surreptitiously", "furiously", "viciously", "crazily", "subtly", "silently",
                         "loudly", "carelessly", "recklessly", "fatally", "unintentionally", "unwittingly",
-                        "knowingly", "explosively", "explicitly", "intentionally", "admittedly"
+                        "knowingly", "explosively", "explicitly", "intentionally", "admittedly", "endlessly"
                 },
                 { // nouns (actually tasks)
                         "homework", "proposal", "report", "project", "poster", "presentation", "deliverable",
@@ -185,8 +185,10 @@ public final class JargonLoader {
                 "After my {abbreviation} {adjective} {verb} my {noun}, I obviously couldn't {ingverb} it.",
                 "I had a bad morning, my {abbreviation} {adjective} {verb} my {abbreviation}'s {noun}, then they {verb} my {noun}.",
                 "After my {abbreviation} {verb} my {noun}, I {adjective} {verb} their {noun}, so neither of us can {ingverb} it.",
-                "I want to {ingverb} my {noun}, but my {abbreviation} {adjective} made my {abbreviation} {verb} it!",
-                "My {abbreviation} {verb} my {noun}, because they thought my {abbreviation}'s was better."
+                "I want to {ingverb} my {noun}, but my {abbreviation} said my {abbreviation} {adjective} {verb} it!",
+                "My {abbreviation} {verb} my {noun}, because they thought my {abbreviation}'s was better.",
+                "The thing is, I can't {ingverb} my {noun} because my {abbreviation} {verb} it, probably {adjective}.",
+                "Remember when my {abbreviation} {verb} my {noun}? Well, today they {adjective} {verb} on it too, so I can't {ingverb} it."
         };
 
         sendDataToGenerator(generator, wordPool, constructs);
