@@ -51,23 +51,23 @@ public class MainActivity extends ActionBarActivity {
         // plug in the copy jargon button
         copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                TextView jargonView = (TextView)findViewById(R.id.textViewJargon);
-                ClipboardManager clipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("jargon", jargonView.getText());
-                clipboard.setPrimaryClip(clip);
+            TextView jargonView = (TextView)findViewById(R.id.textViewJargon);
+            ClipboardManager clipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("jargon", jargonView.getText());
+            clipboard.setPrimaryClip(clip);
 
-                // fade copied text in/out
-                TextView copiedView = (TextView)findViewById(R.id.textViewCopied);
+            // fade copied text in/out
+            TextView copiedView = (TextView)findViewById(R.id.textViewCopied);
 
-                AlphaAnimation fadeIn = new AlphaAnimation(0.0f, 1.0f);
-                AlphaAnimation fadeOut = new AlphaAnimation(1.0f, 0.0f);
-                fadeIn.setDuration(100);
-                fadeOut.setDuration(500);
-                fadeOut.setFillAfter(true);
-                fadeOut.setStartOffset(2000 + fadeIn.getStartOffset());
+            AlphaAnimation fadeIn = new AlphaAnimation(0.0f, 1.0f);
+            AlphaAnimation fadeOut = new AlphaAnimation(1.0f, 0.0f);
+            fadeIn.setDuration(100);
+            fadeOut.setDuration(500);
+            fadeOut.setFillAfter(true);
+            fadeOut.setStartOffset(2000 + fadeIn.getStartOffset());
 
-                copiedView.startAnimation(fadeIn);
-                copiedView.startAnimation(fadeOut);
+            copiedView.startAnimation(fadeIn);
+            copiedView.startAnimation(fadeOut);
             }
         });
 
@@ -75,11 +75,11 @@ public class MainActivity extends ActionBarActivity {
         final Button generateButton = (Button)findViewById(R.id.buttonGenerate);
         generateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                TextView view = (TextView)findViewById(R.id.textViewJargon);
-                view.setText(_jargonGenerator.GenerateJargon());
+            TextView view = (TextView)findViewById(R.id.textViewJargon);
+            view.setText(_jargonGenerator.GenerateJargon());
 
-                // now that we have text, show the copy button
-                copyButton.setVisibility(View.VISIBLE);
+            // now that we have text, show the copy button
+            copyButton.setVisibility(View.VISIBLE);
             }
         });
     }
