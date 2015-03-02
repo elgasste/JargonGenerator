@@ -43,6 +43,15 @@ public class MainActivity extends ActionBarActivity {
         _copyButton.setVisibility(View.INVISIBLE);
         _copiedTextView.setVisibility(View.INVISIBLE);
 
+        // plug in the generate button
+        _generateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // show the jargon text and copy button
+                _jargonTextView.setText(_jargonGenerator.GenerateJargon());
+                _copyButton.setVisibility(View.VISIBLE);
+            }
+        });
+
         // plug in the copy jargon button
         _copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -60,15 +69,6 @@ public class MainActivity extends ActionBarActivity {
 
                 _copiedTextView.startAnimation(fadeIn);
                 _copiedTextView.startAnimation(fadeOut);
-            }
-        });
-
-        // plug in the generate button
-        _generateButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // show the jargon text and copy button
-                _jargonTextView.setText(_jargonGenerator.GenerateJargon());
-                _copyButton.setVisibility(View.VISIBLE);
             }
         });
     }
