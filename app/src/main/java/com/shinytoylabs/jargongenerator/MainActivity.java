@@ -97,6 +97,10 @@ public class MainActivity extends ActionBarActivity {
                 JargonLoader.LoadJargon(_jargonGenerator, "audio");
                 updateAppTitle(getString(R.string.action_audio));
                 break;
+            case R.id.action_excuse:
+                JargonLoader.LoadJargon(_jargonGenerator, "excuse");
+                updateAppTitle(getString(R.string.action_excuse));
+                break;
         }
 
         return super.onOptionsItemSelected(item);

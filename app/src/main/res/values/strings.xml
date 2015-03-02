@@ -5,6 +5,7 @@
     <string name="footer_message_copied">copied!</string>
     <string name="action_technical">Technical</string>
     <string name="action_audio">Audio</string>
+    <string name="action_excuse">Excuse</string>
     <string name="button_generate">Generate</string>
     <string name="button_copy_jargon">Copy this</string>
     <string-array name="jargon_types">
