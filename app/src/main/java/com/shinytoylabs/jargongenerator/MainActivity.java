@@ -38,12 +38,19 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        // initially hide the copy jargon button
+        final Button copyButton = (Button)findViewById(R.id.buttonCopyJargon);
+        copyButton.setVisibility(View.INVISIBLE);
+
         // plug in the generate button
-        final Button button = (Button)findViewById(R.id.buttonGenerate);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button generateButton = (Button)findViewById(R.id.buttonGenerate);
+        generateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView view = (TextView)findViewById(R.id.textViewJargon);
                 view.setText(_jargonGenerator.GenerateJargon());
+
+                // now that we have text, show the copy button
+                copyButton.setVisibility(View.VISIBLE);
             }
         });
     }
