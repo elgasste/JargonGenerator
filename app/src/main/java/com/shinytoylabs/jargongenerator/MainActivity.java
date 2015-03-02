@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -40,17 +41,33 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        // initially hide the copy jargon button
+        // initially hide the copy jargon button and text
         final Button copyButton = (Button)findViewById(R.id.buttonCopyJargon);
         copyButton.setVisibility(View.INVISIBLE);
+
+        final TextView copiedText = (TextView)findViewById(R.id.textViewCopied);
+        copiedText.setVisibility(View.INVISIBLE);
 
         // plug in the copy jargon button
         copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                TextView view = (TextView)findViewById(R.id.textViewJargon);
+                TextView jargonView = (TextView)findViewById(R.id.textViewJargon);
                 ClipboardManager clipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("jargon", view.getText());
+                ClipData clip = ClipData.newPlainText("jargon", jargonView.getText());
                 clipboard.setPrimaryClip(clip);
+
+                // fade copied text in/out
+                TextView copiedView = (TextView)findViewById(R.id.textViewCopied);
+
+                AlphaAnimation fadeIn = new AlphaAnimation(0.0f, 1.0f);
+                AlphaAnimation fadeOut = new AlphaAnimation(1.0f, 0.0f);
+                fadeIn.setDuration(100);
+                fadeOut.setDuration(500);
+                fadeOut.setFillAfter(true);
+                fadeOut.setStartOffset(2000 + fadeIn.getStartOffset());
+
+                copiedView.startAnimation(fadeIn);
+                copiedView.startAnimation(fadeOut);
             }
         });
 
