@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.content.ClipboardManager;
+import android.content.ClipData;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -41,6 +43,16 @@ public class MainActivity extends ActionBarActivity {
         // initially hide the copy jargon button
         final Button copyButton = (Button)findViewById(R.id.buttonCopyJargon);
         copyButton.setVisibility(View.INVISIBLE);
+
+        // plug in the copy jargon button
+        copyButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                TextView view = (TextView)findViewById(R.id.textViewJargon);
+                ClipboardManager clipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("jargon", view.getText());
+                clipboard.setPrimaryClip(clip);
+            }
+        });
 
         // plug in the generate button
         final Button generateButton = (Button)findViewById(R.id.buttonGenerate);
