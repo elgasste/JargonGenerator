@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity {
         // default to technical jargon
         _jargonGenerator = new JargonGenerator();
         JargonLoader.LoadJargon(_jargonGenerator, "technical");
-        updateAppTitle("Technical");
+        updateAppTitle(getString(R.string.action_technical));
 
         // initially hide the copy jargon button and text
         _copyButton.setVisibility(View.INVISIBLE);
