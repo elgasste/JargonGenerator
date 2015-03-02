@@ -19,6 +19,9 @@ public final class JargonLoader {
             case "audio":
                 loadAudioJargon(generator);
                 break;
+            case "excuse":
+                loadExcuseJargon(generator);
+                break;
             default:
                 loadTechJargon(generator);
                 break;
@@ -84,7 +87,7 @@ public final class JargonLoader {
             "I'll {verb} the {adjective} {abbreviation} {noun}, that should {verb} the {abbreviation} {noun}!",
             "My {abbreviation} {noun} is down, our only choice is to {verb} and {verb} the {adjective} {noun}!",
             "They're inside the {noun}, use the {adjective} {abbreviation} {noun} to {verb} their {noun}!",
-            "Send a {adjective} {noun} into the {noun}, it will {verb} the {noun} by {ingverb} its {abbreviation} {noun}!"
+            "Send the {adjective} {noun} into the {noun}, it will {verb} the {noun} by {ingverb} its {abbreviation} {noun}!"
         };
 
         sendDataToGenerator(generator, wordPool, constructs);
@@ -135,6 +138,57 @@ public final class JargonLoader {
             "{ingverb} your {adjective} {noun} will really bring out the {adjective} {adjective} {noun} when you {verb} the {noun}.",
             "If you want to {verb}, try using the {abbreviation} {adjective} {noun}, it's my little trick.",
             "{ingverb} has never been the same since I lost my {adjective} {adjective} {noun}, now I have to use my {noun} for {ingverb}."
+        };
+
+        sendDataToGenerator(generator, wordPool, constructs);
+    }
+
+    private static void loadExcuseJargon(JargonGenerator generator) {
+        String wordPool [][] = {
+                { // abbreviations (actually people/animals)
+                        "mom", "dad", "brother", "sister", "dog", "cat", "boss", "professor",
+                        "roommate", "friend", "colleague", "imaginary friend", "personal space cowboy",
+                        "pet alien", "grandma", "grandpa", "ex-professor's former psychiatrist",
+                        "personal trainer", "neighbor", "maid", "intern", "mentor", "secretary",
+                        "pool boy", "CIA contact", "pet tiger", "son's girlfriend", "butler"
+                },
+                { // adjectives (actually adverbs)
+                        "accidentally", "purposely", "secretly", "deliberately", "angrily", "spontaneously",
+                        "surreptitiously", "furiously", "viciously", "crazily", "subtly", "silently",
+                        "loudly", "carelessly", "recklessly", "fatally", "unintentionally", "unwittingly",
+                        "knowingly", "explosively", "explicitly", "intentionally", "admittedly", "endlessly"
+                },
+                { // nouns (actually tasks)
+                        "homework", "proposal", "report", "project", "poster", "presentation", "deliverable",
+                        "assignment", "exam", "research", "disk", "task list", "rough draft", "second draft",
+                        "final draft", "paper", "thesis", "model", "program", "notebook", "application",
+                        "laptop", "composition"
+                },
+                { // verbs (actually verbs in past tense)
+                        "ate", "stole", "spilled coffee on", "peed on", "swallowed", "threw away",
+                        "tore up", "threw up on", "hid", "buried", "drew on", "buried", "torched",
+                        "broke", "sat on", "destroyed", "dropped", "ruined", "puked on", "sold",
+                        "blew up", "set fire to", "microwaved", "poured water on", "ripped", "drank"
+                },
+                { // verbs ending in "ing" (actually regular verbs)
+                        "deliver", "finish", "complete", "do well on", "type", "contribute to",
+                        "print", "submit", "commit to", "work on", "put effort into", "add to",
+                        "write", "draw", "continue", "finalize"
+                }
+        };
+
+        String constructs [] = {
+                "My {abbreviation} {adjectives} {verb} my {noun}, so I couldn't {ingverb} my {noun}!",
+                "I had issues with my {noun}, my {abbreviation} {verb} it, then {adjective} {verb} my {noun}!",
+                "I couldn't {ingverb} my {noun} because my {abbreviation} {verb} it!",
+                "I {adjective} {verb} my {noun}, it will be hard to {ingverb} it now.",
+                "After my {abbreviation} {adjective} {verb} my {noun}, I obviously couldn't {ingverb} it.",
+                "I had a bad morning, my {abbreviation} {adjective} {verb} my {abbreviation}'s {noun}, then they {verb} my {noun}.",
+                "After my {abbreviation} {verb} my {noun}, I {adjective} {verb} their {noun}, so neither of us can {ingverb} it.",
+                "I want to {ingverb} my {noun}, but my {abbreviation} said my {abbreviation} {adjective} {verb} it!",
+                "My {abbreviation} {verb} my {noun}, because they thought my {abbreviation}'s was better.",
+                "The thing is, I can't {ingverb} my {noun} because my {abbreviation} {verb} it, probably {adjective}.",
+                "Remember when my {abbreviation} {verb} my {noun}? Well, today they {adjective} {verb} on it too, so I can't {ingverb} it."
         };
 
         sendDataToGenerator(generator, wordPool, constructs);
