@@ -8,17 +8,7 @@ import java.util.Random;
  */
 public class JargonGenerator {
 
-    public enum WordType {
-        ABBREVIATION(0), ADJECTIVE(1), NOUN(2), VERB(3), INGVERB(4);
-
-        private final int value;
-        private WordType(int value) {
-            this.value = value;
-        }
-        public int getValue() {
-            return value;
-        }
-    }
+    public final int MAX_WORD_POOL_SIZE = 10;
 
     private ArrayList<ArrayList<String>> _wordPool;
     private ArrayList<String> _wordCache;
@@ -33,13 +23,14 @@ public class JargonGenerator {
         _wordCache = new ArrayList<String>();
         _constructs = new ArrayList<String>();
 
-        for (int i = 0; i < WordType.values().length; i++) {
+        for (int i = 0; i < MAX_WORD_POOL_SIZE; i++) {
             _wordPool.add(new ArrayList<String>());
         }
     }
 
-    public void AddWord(String word, WordType wordType) {
-        _wordPool.get(wordType.value).add(word);
+    public void AddWord(String word, int index) {
+        if (index >= 0 && index < MAX_WORD_POOL_SIZE)
+            _wordPool.get(index).add(word);
     }
 
     public void AddConstruct(String construct) {
@@ -67,7 +58,7 @@ public class JargonGenerator {
         String [] words = construct.split(" ");
         String sentence = "";
 
-        // scan each word for a type, and build a sentence
+        // scan each word for a pool index, and build a sentence
         for(int i = 0; i < words.length; i++) {
             if (i > 0)
                 sentence += " ";
@@ -94,9 +85,12 @@ public class JargonGenerator {
             if (leftBracket > 0)
                 result += word.substring(0, leftBracket);
 
-            // parse the type and get a random word of that type
-            String type = word.substring(leftBracket + 1, rightBracket);
-            result += getRandomWord(getWordTypeFromString(type));
+            // parse the pool index and get a random word (index out of bounds = muffins)
+            int poolIndex = Integer.parseInt(word.substring(leftBracket + 1, rightBracket));
+            if (poolIndex < 0 || poolIndex >= MAX_WORD_POOL_SIZE)
+                result += "muffins";
+            else
+                result += getRandomWord(poolIndex);
 
             // include any characters after the brackets
             if (rightBracket < word.length() - 1)
@@ -108,9 +102,9 @@ public class JargonGenerator {
         return result;
     }
 
-    private String getRandomWord(WordType type) {
+    private String getRandomWord(int poolIndex) {
         // make sure we have at least one word, otherwise muffins
-        ArrayList<String> wordList = _wordPool.get(type.value);
+        ArrayList<String> wordList = _wordPool.get(poolIndex);
         if (wordList.size() < 1)
             return "muffins";
 
@@ -141,21 +135,5 @@ public class JargonGenerator {
             _wordCache.add(word);
 
         return word;
-    }
-
-    private WordType getWordTypeFromString(String type) {
-        switch (type) {
-            case "abbreviation":
-                return WordType.ABBREVIATION;
-            case "adjective":
-                return WordType.ADJECTIVE;
-            case "noun":
-                return WordType.NOUN;
-            case "verb":
-                return WordType.VERB;
-            case "ingverb":
-                return WordType.INGVERB;
-        }
-        return WordType.ADJECTIVE;
     }
 }

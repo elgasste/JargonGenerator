@@ -5,10 +5,6 @@ package com.shinytoylabs.jargongenerator;
  */
 public final class JargonLoader {
 
-    public enum JargonType {
-        TECH, AUDIO
-    }
-
     public static void LoadJargon(JargonGenerator generator, String type) {
         generator.Reset();
 
@@ -29,11 +25,11 @@ public final class JargonLoader {
     }
 
     private static void sendDataToGenerator(JargonGenerator generator, String [][] wordPool, String [] constructs) {
-        for (int i = 0; i < wordPool[0].length; i++) { generator.AddWord(wordPool[0][i], JargonGenerator.WordType.ABBREVIATION); }
-        for (int i = 0; i < wordPool[1].length; i++) { generator.AddWord(wordPool[1][i], JargonGenerator.WordType.ADJECTIVE); }
-        for (int i = 0; i < wordPool[2].length; i++) { generator.AddWord(wordPool[2][i], JargonGenerator.WordType.NOUN); }
-        for (int i = 0; i < wordPool[3].length; i++) { generator.AddWord(wordPool[3][i], JargonGenerator.WordType.VERB); }
-        for (int i = 0; i < wordPool[4].length; i++) { generator.AddWord(wordPool[4][i], JargonGenerator.WordType.INGVERB); }
+        for (int i = 0; i < wordPool.length; i++) {
+            for (int j = 0; j < wordPool[i].length; j++) {
+                generator.AddWord(wordPool[i][j], i);
+            }
+        }
 
         for (int i = 0; i < constructs.length; i++) {
             generator.AddConstruct(constructs[i]);
