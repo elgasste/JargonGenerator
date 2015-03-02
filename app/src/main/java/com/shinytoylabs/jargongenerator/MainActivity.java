@@ -23,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // default to technical jargon
         _jargonGenerator = new JargonGenerator();
         JargonLoader.LoadJargon(_jargonGenerator, "Technical");
 
@@ -94,13 +95,10 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        // TODO: switch between tech and audio jargon
+        if (id == R.id.action_technical) {
             return true;
         }
 
