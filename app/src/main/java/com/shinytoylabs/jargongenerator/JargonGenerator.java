@@ -25,6 +25,10 @@ public class JargonGenerator {
     private ArrayList<String> _constructs;
 
     public JargonGenerator() {
+        Reset();
+    }
+
+    public void Reset() {
         _wordPool = new ArrayList<ArrayList<String>>();
         _wordCache = new ArrayList<String>();
         _constructs = new ArrayList<String>();
@@ -70,7 +74,7 @@ public class JargonGenerator {
             String word = buildWord(words[i]);
 
             // make sure the first word is capitalized
-            if (i == 0)
+            if (i == 0 && word.length() > 0)
                 word = word.substring(0, 1).toUpperCase() + word.substring(1);
 
             sentence += word;
@@ -116,15 +120,25 @@ public class JargonGenerator {
         String word = wordList.get(randomIndex);
 
         // if we've already used this word, find a different one
+        int iterations = 0;
+        boolean reused = false;
         while(_wordCache.contains(word)) {
             randomIndex++;
             if (randomIndex >= wordList.size())
                 randomIndex = 0;
             word = wordList.get(randomIndex);
+
+            // if we've used up every word, just re-use the first one
+            iterations++;
+            if (iterations > wordList.size()) {
+                reused = true;
+                break;
+            }
         }
 
-        // add this word to the cache so we don't use it again
-        _wordCache.add(word);
+        // if it's not a re-used word, add it to the cache so we don't use it again
+        if (!reused)
+            _wordCache.add(word);
 
         return word;
     }
