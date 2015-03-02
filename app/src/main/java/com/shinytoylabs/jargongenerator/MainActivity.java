@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
 
         // default to technical jargon
         _jargonGenerator = new JargonGenerator();
-        JargonLoader.LoadJargon(_jargonGenerator, "Technical");
+        JargonLoader.LoadJargon(_jargonGenerator, "technical");
 
         // plug in the spinner
         final Spinner spinner = (Spinner)findViewById(R.id.spinnerJargonType);
@@ -97,9 +97,14 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        // TODO: switch between tech and audio jargon
-        if (id == R.id.action_technical) {
-            return true;
+        // load the selected jargon type
+        switch(id) {
+            case R.id.action_technical:
+                JargonLoader.LoadJargon(_jargonGenerator, "technical");
+                break;
+            case R.id.action_audio:
+                JargonLoader.LoadJargon(_jargonGenerator, "audio");
+                break;
         }
 
         return super.onOptionsItemSelected(item);
