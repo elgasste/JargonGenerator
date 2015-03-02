@@ -173,7 +173,7 @@ public final class JargonLoader {
                 { // verbs ending in "ing" (actually regular verbs)
                         "deliver", "finish", "complete", "do well on", "type", "contribute to",
                         "print", "submit", "commit to", "work on", "put effort into", "add to",
-                        "write", "draw", "continue"
+                        "write", "draw", "continue", "finalize"
                 }
         };
 
