@@ -6,9 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.content.ClipboardManager;
 import android.content.ClipData;
@@ -17,73 +15,63 @@ import android.content.ClipData;
 public class MainActivity extends ActionBarActivity {
 
     private JargonGenerator _jargonGenerator;
+    private Button _generateButton;
+    private Button _copyButton;
+    private TextView _jargonTextView;
+    private TextView _copiedTextView;
+
+    private void updateAppTitle(String prefix) {
+        setTitle(prefix + " " + getString(R.string.app_name));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        _generateButton = (Button)findViewById(R.id.buttonGenerate);
+        _copyButton = (Button)findViewById(R.id.buttonCopyJargon);
+        _jargonTextView = (TextView)findViewById(R.id.textViewJargon);
+        _copiedTextView = (TextView)findViewById(R.id.textViewCopied);
+
+        // default to technical jargon
         _jargonGenerator = new JargonGenerator();
-        JargonLoader.LoadJargon(_jargonGenerator, "Technical");
-
-        // plug in the spinner
-        final Spinner spinner = (Spinner)findViewById(R.id.spinnerJargonType);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedType = parent.getItemAtPosition(position).toString();
-                JargonLoader.LoadJargon(_jargonGenerator, selectedType);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // auto-generated method stub
-            }
-        });
+        JargonLoader.LoadJargon(_jargonGenerator, "technical");
+        updateAppTitle(getString(R.string.action_technical));
 
         // initially hide the copy jargon button and text
-        final Button copyButton = (Button)findViewById(R.id.buttonCopyJargon);
-        copyButton.setVisibility(View.INVISIBLE);
+        _copyButton.setVisibility(View.INVISIBLE);
+        _copiedTextView.setVisibility(View.INVISIBLE);
 
-        final TextView copiedText = (TextView)findViewById(R.id.textViewCopied);
-        copiedText.setVisibility(View.INVISIBLE);
-
-        // plug in the copy jargon button
-        copyButton.setOnClickListener(new View.OnClickListener() {
+        // plug in the generate button
+        _generateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            TextView jargonView = (TextView)findViewById(R.id.textViewJargon);
-            ClipboardManager clipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("jargon", jargonView.getText());
-            clipboard.setPrimaryClip(clip);
-
-            // fade copied text in/out
-            TextView copiedView = (TextView)findViewById(R.id.textViewCopied);
-
-            AlphaAnimation fadeIn = new AlphaAnimation(0.0f, 1.0f);
-            AlphaAnimation fadeOut = new AlphaAnimation(1.0f, 0.0f);
-            fadeIn.setDuration(100);
-            fadeOut.setDuration(500);
-            fadeOut.setFillAfter(true);
-            fadeOut.setStartOffset(2000 + fadeIn.getStartOffset());
-
-            copiedView.startAnimation(fadeIn);
-            copiedView.startAnimation(fadeOut);
+                // show the jargon text and copy button
+                _jargonTextView.setText(_jargonGenerator.GenerateJargon());
+                _copyButton.setVisibility(View.VISIBLE);
             }
         });
 
-        // plug in the generate button
-        final Button generateButton = (Button)findViewById(R.id.buttonGenerate);
-        generateButton.setOnClickListener(new View.OnClickListener() {
+        // plug in the copy jargon button
+        _copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            TextView view = (TextView)findViewById(R.id.textViewJargon);
-            view.setText(_jargonGenerator.GenerateJargon());
+                ClipboardManager clipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("jargon", _jargonTextView.getText());
+                clipboard.setPrimaryClip(clip);
 
-            // now that we have text, show the copy button
-            copyButton.setVisibility(View.VISIBLE);
+                // fade copied text in/out
+                AlphaAnimation fadeIn = new AlphaAnimation(0.0f, 1.0f);
+                AlphaAnimation fadeOut = new AlphaAnimation(1.0f, 0.0f);
+                fadeIn.setDuration(100);
+                fadeOut.setDuration(500);
+                fadeOut.setFillAfter(true);
+                fadeOut.setStartOffset(2000 + fadeIn.getStartOffset());
+
+                _copiedTextView.startAnimation(fadeIn);
+                _copiedTextView.startAnimation(fadeOut);
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,14 +82,21 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        // reset jargon view and hide copy button
+        _jargonTextView.setText("");
+        _copiedTextView.setVisibility(View.INVISIBLE);
+        _copyButton.setVisibility(View.INVISIBLE);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // load the selected jargon type
+        switch(item.getItemId()) {
+            case R.id.action_technical:
+                JargonLoader.LoadJargon(_jargonGenerator, "technical");
+                updateAppTitle(getString(R.string.action_technical));
+                break;
+            case R.id.action_audio:
+                JargonLoader.LoadJargon(_jargonGenerator, "audio");
+                updateAppTitle(getString(R.string.action_audio));
+                break;
         }
 
         return super.onOptionsItemSelected(item);

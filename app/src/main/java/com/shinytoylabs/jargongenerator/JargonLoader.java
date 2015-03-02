@@ -12,11 +12,11 @@ public final class JargonLoader {
     public static void LoadJargon(JargonGenerator generator, String type) {
         generator.Reset();
 
-        switch(type) {
-            case "Technical":
+        switch(type.toLowerCase()) {
+            case "technical":
                 loadTechJargon(generator);
                 break;
-            case "Audio":
+            case "audio":
                 loadAudioJargon(generator);
                 break;
             default:
