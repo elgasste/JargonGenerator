@@ -21,7 +21,7 @@ public class MainActivity extends ActionBarActivity {
     private TextView _copiedTextView;
 
     private void updateAppTitle(String prefix) {
-
+        setTitle(prefix + " " + getString(R.string.app_name));
     }
 
     @Override
