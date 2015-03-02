@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 
@@ -19,7 +21,22 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         _jargonGenerator = new JargonGenerator();
-        JargonLoader.LoadJargon(_jargonGenerator);
+        JargonLoader.LoadJargon(_jargonGenerator, "Technical");
+
+        // plug in the spinner
+        final Spinner spinner = (Spinner)findViewById(R.id.spinnerJargonType);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedType = parent.getItemAtPosition(position).toString();
+                JargonLoader.LoadJargon(_jargonGenerator, selectedType);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // auto-generated method stub
+            }
+        });
 
         // plug in the generate button
         final Button button = (Button)findViewById(R.id.buttonGenerate);

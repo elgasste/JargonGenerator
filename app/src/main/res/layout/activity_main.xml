@@ -3,31 +3,55 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:id="@+id/viewMain">
 
-    <TextView android:text="@string/header_message" android:layout_width="wrap_content"
+    <TextView android:text="@string/header_message_left" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/textViewHeaderLeft"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textViewHeader" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_generate"
         android:id="@+id/buttonGenerate"
-        android:layout_below="@+id/textViewHeader"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp" />
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/textViewHeaderRight"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textViewJargon"
-        android:layout_below="@+id/buttonGenerate"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="45dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/buttonGenerate" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerJargonType"
+        android:spinnerMode="dropdown"
+        android:entries="@array/jargon_types"
+        android:layout_below="@+id/textViewHeaderLeft"
+        android:layout_alignLeft="@+id/textViewHeaderLeft"
+        android:layout_alignStart="@+id/textViewHeaderLeft"
+        android:layout_alignRight="@+id/textViewHeaderLeft"
+        android:layout_alignEnd="@+id/textViewHeaderLeft" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/header_message_right"
+        android:id="@+id/textViewHeaderRight"
+        android:layout_below="@+id/spinnerJargonType"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
