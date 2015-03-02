@@ -27,21 +27,6 @@ public class MainActivity extends ActionBarActivity {
         _jargonGenerator = new JargonGenerator();
         JargonLoader.LoadJargon(_jargonGenerator, "technical");
 
-        // plug in the spinner
-        final Spinner spinner = (Spinner)findViewById(R.id.spinnerJargonType);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedType = parent.getItemAtPosition(position).toString();
-                JargonLoader.LoadJargon(_jargonGenerator, selectedType);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // auto-generated method stub
-            }
-        });
-
         // initially hide the copy jargon button and text
         final Button copyButton = (Button)findViewById(R.id.buttonCopyJargon);
         copyButton.setVisibility(View.INVISIBLE);

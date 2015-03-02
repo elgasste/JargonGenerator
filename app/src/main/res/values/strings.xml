@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Jargon Generator</string>
 
-    <string name="header_message_left">Press the button for</string>
-    <string name="header_message_right">jargon!</string>
+    <string name="header_message_left">Press the button for jargon!</string>
     <string name="footer_message_copied">copied!</string>
     <string name="action_technical">Technical</string>
     <string name="action_audio">Audio</string>
