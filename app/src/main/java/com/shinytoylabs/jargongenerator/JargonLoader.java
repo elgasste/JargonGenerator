@@ -84,7 +84,7 @@ public final class JargonLoader {
             "I'll {verb} the {adjective} {abbreviation} {noun}, that should {verb} the {abbreviation} {noun}!",
             "My {abbreviation} {noun} is down, our only choice is to {verb} and {verb} the {adjective} {noun}!",
             "They're inside the {noun}, use the {adjective} {abbreviation} {noun} to {verb} their {noun}!",
-            "Send a {adjective} {noun} into the {noun}, it will {verb} the {noun} by {ingverb} its {abbreviation} {noun}"
+            "Send a {adjective} {noun} into the {noun}, it will {verb} the {noun} by {ingverb} its {abbreviation} {noun}!"
         };
 
         sendDataToGenerator(generator, wordPool, constructs);
