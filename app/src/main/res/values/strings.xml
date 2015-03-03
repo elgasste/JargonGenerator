@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Jargon Generator</string>
 
-    <string name="header_message_left">Press the button for jargon!</string>
+    <string name="header_message_technical">Need some dialogue for your Hollywood thriller screenplay? Press the button for some tech jargon!</string>
+    <string name="header_message_audio">Need to impress your hipster DJ friend? Press the button for some audio jargon!</string>
+    <string name="header_message_excuse">Have a project due today that you completely forgot to do? Press the button for the perfect excuse!</string>
     <string name="footer_message_copied">copied!</string>
     <string name="action_technical">Technical</string>
     <string name="action_audio">Audio</string>
