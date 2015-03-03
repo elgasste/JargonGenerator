@@ -17,6 +17,7 @@ public class MainActivity extends ActionBarActivity {
     private JargonGenerator _jargonGenerator;
     private Button _generateButton;
     private Button _copyButton;
+    private TextView _headerTextView;
     private TextView _jargonTextView;
     private TextView _copiedTextView;
 
@@ -31,6 +32,7 @@ public class MainActivity extends ActionBarActivity {
 
         _generateButton = (Button)findViewById(R.id.buttonGenerate);
         _copyButton = (Button)findViewById(R.id.buttonCopyJargon);
+        _headerTextView = (TextView)findViewById(R.id.textViewHeader);
         _jargonTextView = (TextView)findViewById(R.id.textViewJargon);
         _copiedTextView = (TextView)findViewById(R.id.textViewCopied);
 
@@ -92,14 +94,17 @@ public class MainActivity extends ActionBarActivity {
             case R.id.action_technical:
                 JargonLoader.LoadJargon(_jargonGenerator, "technical");
                 updateAppTitle(getString(R.string.action_technical));
+                _headerTextView.setText(R.string.header_message_technical);
                 break;
             case R.id.action_audio:
                 JargonLoader.LoadJargon(_jargonGenerator, "audio");
                 updateAppTitle(getString(R.string.action_audio));
+                _headerTextView.setText(R.string.header_message_audio);
                 break;
             case R.id.action_excuse:
                 JargonLoader.LoadJargon(_jargonGenerator, "excuse");
                 updateAppTitle(getString(R.string.action_excuse));
+                _headerTextView.setText(R.string.header_message_excuse);
                 break;
         }
 
