@@ -141,32 +141,32 @@ public final class JargonLoader {
 
     private static void loadExcuseJargon(JargonGenerator generator) {
         String wordPool [][] = {
-                { // people/animals
+                { // 0 - people/animals
                         "mom", "dad", "brother", "sister", "dog", "cat", "boss", "professor",
                         "roommate", "friend", "colleague", "imaginary friend", "personal space cowboy",
                         "pet alien", "grandma", "grandpa", "ex-professor's former psychiatrist",
                         "personal trainer", "neighbor", "maid", "intern", "mentor", "secretary",
                         "pool boy", "CIA contact", "pet tiger", "son's girlfriend", "butler"
                 },
-                { // adverbs
+                { // 1 - adverbs
                         "accidentally", "purposely", "secretly", "deliberately", "angrily", "spontaneously",
                         "surreptitiously", "furiously", "viciously", "crazily", "subtly", "silently",
                         "loudly", "carelessly", "recklessly", "fatally", "unintentionally", "unwittingly",
                         "knowingly", "explosively", "explicitly", "intentionally", "admittedly", "endlessly"
                 },
-                { // nouns
+                { // 2 - nouns
                         "homework", "proposal", "report", "project", "poster", "presentation", "deliverable",
                         "assignment", "exam", "research", "disk", "task list", "rough draft", "second draft",
                         "final draft", "paper", "thesis", "model", "program", "notebook", "application",
                         "laptop", "composition"
                 },
-                { // verbs (in past tense)
+                { // 3 - verbs (in past tense)
                         "ate", "stole", "spilled coffee on", "peed on", "swallowed", "threw away",
                         "tore up", "threw up on", "hid", "buried", "drew on", "buried", "torched",
                         "broke", "sat on", "destroyed", "dropped", "ruined", "puked on", "sold",
                         "blew up", "set fire to", "microwaved", "poured water on", "ripped", "drank"
                 },
-                { // verbs
+                { // 4 - verbs
                         "deliver", "finish", "complete", "do well on", "type", "contribute to",
                         "print", "submit", "commit to", "work on", "put effort into", "add to",
                         "write", "draw", "continue", "finalize"
