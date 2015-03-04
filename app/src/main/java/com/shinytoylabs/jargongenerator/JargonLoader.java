@@ -161,15 +161,16 @@ public final class JargonLoader {
                         "laptop", "composition"
                 },
                 { // 3 - verbs (in past tense)
-                        "ate", "stole", "spilled coffee on", "peed on", "swallowed", "threw away",
-                        "tore up", "threw up on", "hid", "buried", "drew on", "buried", "torched",
+                        "ate", "stole", "spilled coffee on", "peed on", "swallowed", "tainted",
+                        "tore up", "threw up on", "hid", "buried", "painted on", "buried", "smashed",
                         "broke", "sat on", "destroyed", "dropped", "ruined", "puked on", "sold",
                         "blew up", "set fire to", "microwaved", "poured water on", "ripped", "drank"
                 },
                 { // 4 - verbs
-                        "deliver", "finish", "complete", "do well on", "type", "contribute to",
+                        "deliver", "finish", "complete", "do well on", "contribute to",
                         "print", "submit", "commit to", "work on", "put effort into", "add to",
-                        "write", "draw", "continue", "finalize"
+                        "write", "continue", "finalize", "send", "do", "follow through on",
+                        "sign off on"
                 }
         };
 
@@ -179,12 +180,12 @@ public final class JargonLoader {
                 "I couldn't {4} my {2} because my {0} {3} it!",
                 "I {1} {3} my {2}, it will be hard to {4} it now.",
                 "After my {0} {1} {3} my {2}, I obviously couldn't {4} it.",
-                "I had a bad morning, my {0} {1} {3} my {0}'s {2}, then they {3} my {2}.",
+                "I had a bad morning, my {0} {1} {3} my {0}'s {2}, then {3} my {2}.",
                 "After my {0} {3} my {2}, I {1} {3} their {2}, so neither of us can {4} it.",
                 "I want to {4} my {2}, but my {0} said my {0} {1} {3} it!",
                 "My {0} {3} my {2}, because they thought my {0}'s was better.",
                 "The thing is, I can't {4} my {2} because my {0} {3} it, probably {1}.",
-                "Remember when my {0} {3} my {2}? Well, today they {1} {3} on it too, so I can't {4} it."
+                "Remember when my {0} {3} my {2}? Well, today they {1} {3} it too, so I can't {4} it."
         };
 
         sendDataToGenerator(generator, wordPool, constructs);
